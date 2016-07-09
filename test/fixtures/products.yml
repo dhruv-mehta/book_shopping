@@ -1,13 +1,24 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-   title: MyString
+  title: MyString
   description: MyText
   image_url: MyString
   price: 9.99
 
 two:
-   title: MyString
+  title: MyString
   description: MyText
   image_url: MyString
   price: 9.99
+
+validdata1:
+  title: computer part1
+  description: this is the demo created for checking the fixtures
+  image_url: mystring1.jpg
+  price:10
+
+validdata2:
+  title: computer part1
+  description: this is the part of the google for making this valid
+  image_url: mystring2.jpg
