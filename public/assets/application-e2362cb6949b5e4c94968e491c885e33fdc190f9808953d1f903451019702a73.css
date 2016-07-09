@@ -1,0 +1,72 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+
+
+ * require_tree . 
+
+ */
+
+ 
+/* line 9, /Users/c221/Desktop/Newrails/Book_Shopping/app/assets/stylesheets/products.scss */
+table {
+  border-collapse: collapse;
+  width: 800px;
+}
+
+/* line 14, /Users/c221/Desktop/Newrails/Book_Shopping/app/assets/stylesheets/products.scss */
+table tr td {
+  padding: 5px;
+  vertical-align: top;
+}
+
+/* line 19, /Users/c221/Desktop/Newrails/Book_Shopping/app/assets/stylesheets/products.scss */
+.list_image {
+  width: 60px;
+  height: 70px;
+}
+
+/* line 24, /Users/c221/Desktop/Newrails/Book_Shopping/app/assets/stylesheets/products.scss */
+.list_description {
+  width: 60%;
+}
+/* line 27, /Users/c221/Desktop/Newrails/Book_Shopping/app/assets/stylesheets/products.scss */
+.list_description dl {
+  margin: 0;
+}
+/* line 31, /Users/c221/Desktop/Newrails/Book_Shopping/app/assets/stylesheets/products.scss */
+.list_description dt {
+  color: #244;
+  font-weight: bold;
+  font-size: larger;
+}
+/* line 37, /Users/c221/Desktop/Newrails/Book_Shopping/app/assets/stylesheets/products.scss */
+.list_description dd {
+  margin: 0;
+}
+
+/* line 42, /Users/c221/Desktop/Newrails/Book_Shopping/app/assets/stylesheets/products.scss */
+.list_actions {
+  font-size: large;
+  text-align: right;
+  padding-left: 1em;
+}
+
+/* line 48, /Users/c221/Desktop/Newrails/Book_Shopping/app/assets/stylesheets/products.scss */
+.list_line_even {
+  background: #e0f8f8;
+}
+
+/* line 51, /Users/c221/Desktop/Newrails/Book_Shopping/app/assets/stylesheets/products.scss */
+.list_line_odd {
+  background: #f8b0f8;
+}
