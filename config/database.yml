@@ -19,7 +19,7 @@ production:
   database: book_shopping_production
   pool: 5
   username: c221
-  password: 
+  password:   
 
 test:
   adapter: postgresql
