@@ -3,8 +3,8 @@
 <h1>Your Catalog</h1>
 <% @products.each do |product| %>
 <div class="entry">
-<%= image_tag(product.image_url) %> <h3><%= product.title %></h3>
-<%= sanitize(product.description) %> <div class="price_line">
+<%= image_tag(product.image_url) %> <h3><%= product.title %><br><br><%= sanitize(product.description) %></h3>
+ <div class="price_line">
 <span class="price"><%= number_to_currency(product.price, :unit => "$") %></span> </div>
 
 
