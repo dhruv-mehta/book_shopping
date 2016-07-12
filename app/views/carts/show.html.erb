@@ -3,8 +3,11 @@
 <p id="notice"><%= notice %></p>
  <% end %>
 <h2>Your Pragmatic Cart</h2> <ul>
-<% @cart.line_items.each do |item| %> <li><%= item.product.title %>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<%= number_to_currency(item.product.price, :unit => "$") %></li>
-<li></li>
-<% end %> </ul><!-- 
-<%= link_to 'Edit', edit_cart_path(@cart) %> | -->
+<% @cart.line_items.each do |item| %> 
+<li>
+<%= item.product.title %>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+<%= number_to_currency(item.product.price, :unit => "$") %><br><br>
+	
+</li>
+<% end %> </ul>
 <%= link_to 'Back', root_path %>
