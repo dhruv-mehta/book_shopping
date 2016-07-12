@@ -4,8 +4,8 @@
  <% end %>
 <h2>Your Pragmatic Cart</h2> <ul>
 <% @cart.line_items.each do |item| %> 
-<li>
-<%= item.product.title %>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+
+<li><%= item.quantity %> &times; <li><%= item.product.title %></li>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
 <%= number_to_currency(item.product.price, :unit => "$") %><br><br>
 	
 </li>
