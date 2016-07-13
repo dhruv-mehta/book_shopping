@@ -1,13 +1,32 @@
-
 <% if notice %>
-<p id="notice"><%= notice %></p>
+		<p id="notice"><%= notice %></p>
  <% end %>
-<h2>Your Pragmatic Cart</h2> <ul>
+
+<h2>Your Pragmatic Cart</h2> 
+<ul>
+<table border="0" width="50%" height="50%" class="table">
 <% @cart.line_items.each do |item| %> 
 
-<li><%= item.quantity %> &times; <li><%= item.product.title %></li>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-<%= number_to_currency(item.product.price, :unit => "$") %><br><br>
+ 
+		<tr>
+			<td><%= item.quantity %> &times; <%= item.product.title %></td>
+			<td><%= number_to_currency(item.total_price, :unit => "$") %></td>
+		</tr>
+
 	
-</li>
-<% end %> </ul>
-<%= link_to 'Back', root_path %>
+<% end %>	
+	<tr>
+				<td>Total Price:</td>
+				<td>-------------</td>
+	</tr>	
+	<tr>
+				<td></td>
+				<td><%= number_to_currency(@cart.total_price, :unit => "$") %></td>
+	</tr>
+
+</table>
+		<%= button_to 'Empty Cart', @cart, method: :delete,
+    		data: { confirm: 'are you sure?'} %>
+
+</ul>
+		<%= link_to 'Back', root_path %>

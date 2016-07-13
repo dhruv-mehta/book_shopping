@@ -7,8 +7,15 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
   table {
-    border-collapse: collapse;
+
     width: 800px
+  }
+
+  .table
+  {
+
+  border-collapse: collapse;
+    width: 400px
   }
 
   table tr td {
