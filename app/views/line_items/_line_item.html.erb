@@ -1,0 +1,11 @@
+<% line_items.each do |item| %> 
+		<tr>
+			<td>
+				<%= item.quantity %> * <%= item.product.title %>
+			</td>
+			<td>
+				<%= number_to_currency(item.total_price, :unit => "$") %>
+			</td>
+
+		</tr>
+<% end %>		

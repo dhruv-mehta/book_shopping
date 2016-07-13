@@ -1,0 +1,25 @@
+<h2>
+	Your Pragmatic Cart
+</h2>
+
+
+	<table class="table" >
+
+	<%= render partial: "line_items/line_item", locals: { line_items: @cart. line_items } %>
+
+	
+		<tr>
+			<td>
+				Total
+			</td>			
+			<td>
+				<%= number_to_currency(@cart.total_price, :unit => "$" ) %>
+			</td>
+		</tr>
+		</table>
+
+		<%= button_to 'Empty Cart', @cart, method: :delete, data: { confirm: 'Are you sure?'} %>
+
+		<%= link_to 'Edit', edit_cart_path(@cart) %> |
+		<%= link_to 'Back', root_path %>
+
