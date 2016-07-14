@@ -5,7 +5,10 @@ class CartsController < ApplicationController
  
   
     
-
+def record_not_found
+         flash[:notice] = "Post successfully created"
+      render file: "public/404.html", status: 404
+    end
 
   # GET /carts
   # GET /carts.json
@@ -66,6 +69,7 @@ class CartsController < ApplicationController
     respond_to do |format|
     format.html { redirect_to root_url,
     notice: 'Your cart is empty' }
+    format.js 
     format.json { head :no_content }
     end
   end
@@ -81,8 +85,5 @@ class CartsController < ApplicationController
       params.fetch(:cart, {})
     end
     
-    def record_not_found
-         flash[:notice] = "Post successfully created"
-      render file: "public/404.html", status: 404
-    end
+    
 end

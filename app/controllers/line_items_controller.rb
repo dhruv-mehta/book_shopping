@@ -5,7 +5,7 @@ class LineItemsController < ApplicationController
   include CreateCart
 
   before_action :set_line_item, only: [:show, :edit, :update, :destroy]
-  before_action :current_cart , only: [:create]
+  before_action :current_cart
   # GET /line_items
   # GET /line_items.json
   def index
@@ -29,7 +29,6 @@ class LineItemsController < ApplicationController
   # POST /line_items
   # POST /line_items.json
   def create
-
     @cart = current_cart
 
     puts "----#{@cart.inspect}"
@@ -38,9 +37,11 @@ class LineItemsController < ApplicationController
     @line_item = @cart.line_items.find_by(:product_id => params[:product_id])
     
     if @line_item.present?
-       @line_item.update_attributes(:quantity => (@line_item.quantity.to_i + 1).to_s  )
+       @line_item.update_attributes(:quantity => (@line_item.quantity.to_i + 1).to_s)
     else
-        @cart.line_items.create!(:product_id => params[:product_id])
+
+        @line_item = LineItem.new(:product_id => params[:product_id] , :cart_id => @cart.id)
+        @line_item.save
     end 
 
     # product = Product.find(params[:product_id])
@@ -50,7 +51,10 @@ class LineItemsController < ApplicationController
 
     respond_to do |format|
       if @cart
-        format.html { redirect_to @cart, notice: 'Line item was successfully created.' }
+      
+        format.html { redirect_to root_path}
+        format.js{ @current_item = @line_item }
+        puts #{@current_item}
         format.json { render :show, status: :created, location: @line_item }
       else
         format.html { render :new }
