@@ -12,10 +12,15 @@
 				</div>
 	
 <div id="columns">
-<div id="side"> 
-<div id="cart">
-		<%= render :partial => 'carts/cart' %>
+<div id="side">
+
+<% if current_page?(:controller => 'store', :action => 'index') %>
+
+		<div id="cart">
+					<%= render :partial => 'carts/cart' %>
 		</div>
+
+<% end %>
 		
 		<ul>
 				<li><a href="http://www....">Home</a></li>

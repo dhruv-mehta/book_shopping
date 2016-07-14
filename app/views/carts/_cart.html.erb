@@ -1,5 +1,4 @@
 <% unless @cart.line_items.empty? %>
-
 <h2 class="cart_title">
 	Your Pragmatic Cart
 </h2>
@@ -7,7 +6,7 @@
 
 	<table class="table" >
 
-	<%= render (@cart.line_items) %>
+	<%= render (@cart.line_items)  %>
 
 	
 		<tr class="total_line">
@@ -22,5 +21,4 @@
 
 		<%= button_to 'Empty Cart', @cart, method: :delete, data: { confirm: 'Are you sure?'} ,:remote =>true  ,  :id => "button" %>
 
-		
-<% end %>
+<% end %>		
