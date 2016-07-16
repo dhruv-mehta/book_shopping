@@ -1,6 +1,6 @@
 class OrdersController < ApplicationController
  
-require "createcart"
+
 
   include CreateCart
 
@@ -56,9 +56,11 @@ require "createcart"
 
       @line_item1 = @cart.line_items.where(:cart_id => session[:cart_id])
        @line_item1.update_all(order_id:  @order.id)
+       session['cart_id']=nil
+      
 
 
-        format.html { redirect_to @order, notice: 'Order was successfully created.' }
+        format.html { redirect_to root_url, notice: 'order saved...ThAnK YoU FoR ThE PuRcHaSe........' }
         format.json { render :show, status: :created, location: @order }
       else
         format.html { render :new }
