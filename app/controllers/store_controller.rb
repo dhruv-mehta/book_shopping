@@ -1,8 +1,6 @@
 class StoreController < ApplicationController
 
 
-
-require createcart
   include CreateCart
 
 

@@ -1,7 +1,6 @@
 class LineItemsController < ApplicationController
   
   
-require createcart
   include CreateCart
 
   before_action :set_line_item, only: [:show, :edit, :update, :destroy]
