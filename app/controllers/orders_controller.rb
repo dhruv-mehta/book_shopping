@@ -1,8 +1,5 @@
 class OrdersController < ApplicationController
  
-
-
-
   include CreateCart
 
   before_action :set_order, only: [:show, :edit, :update, :destroy]
@@ -58,9 +55,7 @@ class OrdersController < ApplicationController
       @line_item1 = @cart.line_items.where(:cart_id => session[:cart_id])
        @line_item1.update_all(order_id:  @order.id)
        session['cart_id']=nil
-      
-
-
+       OrderNotify.received(@order).deliver
         format.html { redirect_to root_url, notice: 'order saved...ThAnK YoU FoR ThE PuRcHaSe........' }
         format.json { render :show, status: :created, location: @order }
       else
