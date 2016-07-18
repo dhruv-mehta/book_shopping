@@ -1,7 +1,6 @@
 class StoreController < ApplicationController
 
-
-  include CreateCart
+ include CreateCart
 
 
 before_action :current_cart , only: [:index]
