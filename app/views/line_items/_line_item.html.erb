@@ -5,8 +5,8 @@
 <% end %>
 
 		
-			<td>
-				<%= line_item.quantity %> * <%= line_item.product.title %>
+		<td>
+				<%= line_item.quantity %> * <%= line_item.product.title  %>
 			</td>
 			<td>
 				<%= number_to_currency(line_item.total_price, :unit => "$") %>
