@@ -1,6 +1,6 @@
 class LineItemsController < ApplicationController
   
-  require "createcart"
+  
 
   include CreateCart
 
