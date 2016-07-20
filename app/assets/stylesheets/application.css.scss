@@ -11,6 +11,9 @@
  * file per style scope.
  *
 
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
  *= require store  
  *= require carts   
  *= require products

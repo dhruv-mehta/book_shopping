@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang='en'>
 <head>
 		<title>Pragprog Books Online Store</title> 
 		<%= stylesheet_link_tag "application" %> <%= javascript_include_tag "application" %> 
@@ -22,14 +22,19 @@
 
 <% end %>
 		
+		<% if session[:user_id] !=nil %>
 		<ul>
 				<li><%= link_to "Home", root_path %></li>
 				<li><a href="http://www..../faq">Questions</a></li> 
 				<li><a href="http://www..../news">News</a></li> 
-				<li><a href="http://www..../contact">Contact</a></li>
+				<li><%= link_to "logout",session_path(session[:user_id]), :method => :delete %></li>
 		
 		</ul> 
-		
+
+		<% else %>
+					<ul><li><%= link_to "login here",new_session_path %></li></li></ul>
+
+		<% end %>
 </div>
 <div id="main"> 
 				<%= yield %>
