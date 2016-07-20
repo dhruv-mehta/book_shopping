@@ -1,10 +1,17 @@
 Rails.application.routes.draw do
  
 
+  get 'welcome/index'
+
+  
+  resources :admins
   resources :orders
   resources :line_items
   resources :carts
   resources :products
+  resources :sessions
+
+
 
 
    # root 'products#index'
