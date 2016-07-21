@@ -26,13 +26,20 @@ class SessionsController < ApplicationController
   def create
   admin = Admin.find_by(:name => params[:name])
   if admin && admin.authenticate(params[:password])
+
     session[:user_id] = admin.id
     respond_to do |format|
-    format.html { redirect_to welcome_index_path } #, flash[:success] = "holder updated")
-      format.js
+      if admin.is_admin?
+         format.html { redirect_to admin_root_path } #, flash[:success] = "holder updated")
+         format.js
+      else
+         format.html { redirect_to root_path } #, flash[:success] = "holder updated")
+         format.js
+      end
     end
   else
-    render 'new'
+  
+    redirect_to new_session_path, alert: "Invalid user/password combination"
   end
 end
 
@@ -54,7 +61,7 @@ end
   # DELETE /sessions/1.json
   def destroy
   session[:user_id]=nil
-  render 'new'
+  redirect_to root,  alert: "successfully logout"
   end
 
   private

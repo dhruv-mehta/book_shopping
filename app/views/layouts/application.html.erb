@@ -25,14 +25,17 @@
 		<% if session[:user_id] !=nil %>
 		<ul>
 				<li><%= link_to "Home", root_path %></li>
-				<li><a href="http://www..../faq">Questions</a></li> 
-				<li><a href="http://www..../news">News</a></li> 
+				<li><%= link_to "order page", orders_path %></li>
+				<li><%= link_to "product page", products_path %></li>
 				<li><%= link_to "logout",session_path(session[:user_id]), :method => :delete %></li>
 		
 		</ul> 
 
 		<% else %>
-					<ul><li><%= link_to "login here",new_session_path %></li></li></ul>
+					<ul><li><%= link_to "login here",new_session_path %></li>
+						<li><%= link_to "sign up",new_admin_path %></li>
+						
+					</ul>
 
 		<% end %>
 </div>

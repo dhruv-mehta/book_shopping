@@ -1,4 +1,4 @@
-class OrdersController < ApplicationController
+class OrdersController < BaseController
  
   include CreateCart
 
@@ -7,7 +7,7 @@ class OrdersController < ApplicationController
 
 
   # GET /orders
-  # GET /orders.json
+  # GET /orders.json  
 
   
 

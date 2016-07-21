@@ -7,7 +7,7 @@ before_destroy :removal_product
 validates :title, :uniqueness => {:message =>  " already exsits"} , presence: true
 validates :description , presence: true
 validates :image_url , presence: true , format: {with: /\.(png|jpg)\Z/i}
-validates :price, :numericality => { :greater_than => 0.01  } 
+validates :price, numericality: {only_integer: true}
 
 
 def removal_product

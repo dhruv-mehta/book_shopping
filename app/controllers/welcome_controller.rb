@@ -1,7 +1,7 @@
-class WelcomeController < ApplicationController
+class WelcomeController < BaseController
   def index
 
-  	@name=session[:user_name]
-  	 @name
+  	@user=Admin.order(:name)
+
   end
 end

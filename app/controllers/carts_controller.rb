@@ -1,4 +1,4 @@
-class CartsController < ApplicationController
+class CartsController < BaseController
  
  before_action :set_cart, only: [:show, :edit, :update, :destroy]
 

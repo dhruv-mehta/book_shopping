@@ -1,4 +1,8 @@
-<h1>New Session</h1>
+<div class="depot_form"> <% if flash[:alert] %>
+<p id="notice"><%= flash[:alert] %></p> <% end %>
+
+
+<h1>Please Login To Continue</h1>
 
 <%= render 'form' %>
 
