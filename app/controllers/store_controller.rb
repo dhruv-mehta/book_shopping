@@ -1,4 +1,4 @@
-class StoreController < BaseController
+class StoreController < ApplicationController
 
  include CreateCart
 
