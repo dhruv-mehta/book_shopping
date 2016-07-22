@@ -1,4 +1,5 @@
 class LineItemsController < ApplicationController
+
   
   
   include CreateCart
@@ -29,12 +30,8 @@ class LineItemsController < ApplicationController
   # POST /line_items.json
   def create
     @cart = current_cart
-
     puts "----#{@cart.inspect}"
-
-
     @line_item = @cart.line_items.find_by(:product_id => params[:product_id])
-    
     if @line_item.present?
        @line_item.update_attributes(:quantity => (@line_item.quantity.to_i + 1).to_s)
     else
@@ -50,7 +47,6 @@ class LineItemsController < ApplicationController
 
     respond_to do |format|
       if @cart
-      
         format.html { redirect_to root_path}
         format.js{ @current_item = @line_item }
         puts #{@current_item}

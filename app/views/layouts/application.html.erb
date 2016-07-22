@@ -1,47 +1,47 @@
 <!DOCTYPE html>
 <html lang='en'>
-<head>
-		<title>Pragprog Books Online Store</title> 
-		<%= stylesheet_link_tag "application" %> <%= javascript_include_tag "application" %> 
+	<head>
+		<title>
+			Pragprog Books Online Store
+		</title> 
+		<%= stylesheet_link_tag "application" %> 
+		<%= javascript_include_tag "application" %> 
 		<%= csrf_meta_tag %>
-</head>
+	</head>
 	<body class="<%= controller.controller_name %>">
-				<div id="banner">
-				<%= image_tag("images.png" ,  :align=> "left" , size: "40") %>
-				<%= @page_title || " BookShopping" %>
-				</div>
-	
-<div id="columns">
-<div id="side">
-
-<% if current_page?(:controller => 'store', :action => 'index') %>
-
-		<div id="cart">
-					<%= render :partial => 'carts/cart' %>
+		<div id="banner">
+			<%= image_tag("images.png" ,  :align=> "left" , size: "40") %>
+			<%= @page_title || " BookShopping" %>
 		</div>
-
-<% end %>
-		
-		<% if session[:user_id] !=nil %>
-		<ul>
-				<li><%= link_to "Home", root_path %></li>
-				<li><%= link_to "order page", orders_path %></li>
-				<li><%= link_to "product page", products_path %></li>
-				<li><%= link_to "logout",session_path(session[:user_id]), :method => :delete %></li>
-		
-		</ul> 
-
-		<% else %>
-					<ul><li><%= link_to "login here",new_session_path %></li>
-						<li><%= link_to "sign up",new_admin_path %></li>
-						
+	<div id="columns">
+		<div id="side">
+			<div class="cart_display">
+			dsfdsfdsfdsfdsf
+																																		
+					
+							<div id= "cart" %>	
+								<%= render @cart %> 
+							</div>
+			
+			</div>
+					<ul>
+						<li><a href="/faq"><%= t('.faq') %></a></li>
+					  <li><a href="/contact"><%= t('.contact') %></a>
+					  <li><a href="/about"><%= t('.about') %></a>
+						<li><%= link_to "Home", root_path %></li>
+						<li><%= link_to "order page", orders_path %></li>
+						<li><%= link_to "product page", products_path %></li>
+						<% if session[:user_id].present? %>
+								<li><%= link_to "logout",session_path(session[:user_id]), :method => :delete %></li>
+						<% else %>
+							<li><%= link_to "login here",new_session_path %></li>
+							<li><%= link_to "sign up",new_admin_path %></li>
+						<% end %>
 					</ul>
-
-		<% end %>
+				</div>
+	<div id="main"> 
+		<%= yield %>
+	</div>
 </div>
-<div id="main"> 
-				<%= yield %>
-				 </div>
-  </div>
 </body>
 </html>

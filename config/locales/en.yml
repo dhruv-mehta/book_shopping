@@ -19,5 +19,20 @@
 # To learn more, please read the Rails Internationalization guide
 # available at http://guides.rubyonrails.org/i18n.html.
 
-en:
-  hello: "Hello world"
+
+  layouts:
+    application:
+      title: "My fdfdsfsdCgfgfdgdfatalog"
+      home: "Home"
+      store: "Store"
+      faq: "FAQ"
+      contact: "Contact"
+      about: "About"
+
+
+  carts: 
+    cart:
+      title: "Carrito de la Compra" 
+      empty: "Vaciar Carrito" 
+      checkout: "Comprar"
+

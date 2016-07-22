@@ -4,20 +4,21 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
   get 'welcome/index'
 
-  
-  resources :admins
+  scope "(:locale)" do
   resources :orders
   resources :line_items
   resources :carts
   resources :products
   resources :sessions
 
+  root 'store#index'
 
+end
 
-
+resources :admins
    # root 'products#index'
 
-   root 'store#index'
+   
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

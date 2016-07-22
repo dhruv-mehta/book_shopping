@@ -10,14 +10,11 @@ validates :image_url , presence: true , format: {with: /\.(png|jpg)\Z/i}
 validates :price, numericality: {only_integer: true}
 
 
-def removal_product
-
-	if line_items.nil?
-		return true
-
-	else
-		errors.add(:Product_id, "Product id foreign key must exist")
+	def removal_product
+		if line_items.nil?
+				return true
+		else
+				errors.add(:Product_id, "Product id foreign key must exist")
+		end
 	end
-end
-
 end

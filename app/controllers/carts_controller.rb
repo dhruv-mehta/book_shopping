@@ -1,4 +1,4 @@
-class CartsController < BaseController
+class CartsController < ApplicationController
  
  before_action :set_cart, only: [:show, :edit, :update, :destroy]
 
@@ -65,13 +65,13 @@ def record_not_found
   # DELETE /carts/1
   # DELETE /carts/1.json
   def destroy
-   @cart.destroy if @cart.id == session[:cart_id]
+    @cart.destroy if @cart.id == session[:cart_id]
     session[:cart_id] = nil
     respond_to do |format|
-    format.html { redirect_to root_url,
-    notice: 'Your cart is empty' }
-    format.js 
-    format.json { head :no_content }
+      format.html { redirect_to root_url,
+      notice: 'Your cart is empty' }
+      format.js 
+      format.json { head :no_content }
     end
   end
 

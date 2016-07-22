@@ -1,15 +1,12 @@
 <% if line_item == @current_item %>
 	<tr id="current_item">
 <% else %>
-	<tr>
+<tr>
 <% end %>
-
-		
-		<td>
+	<td>
 				<%= line_item.quantity %> * <%= line_item.product.title  %>
-			</td>
-			<td>
-				<%= number_to_currency(line_item.total_price, :unit => "$") %>
-			</td>
-
-		</tr>
+	</td>
+	<td>
+			<%= number_to_currency(line_item.total_price, :unit => "$") %>
+	</td>
+</tr>
