@@ -16,13 +16,12 @@
 	<div id="columns">
 		<div id="side">
 			<div class="cart_display">
-			dsfdsfdsfdsfdsf
-																																		
-					
+
+			<% if @cart %>
 							<div id= "cart" %>	
 								<%= render @cart %> 
 							</div>
-			
+			<% end %>
 			</div>
 					<ul>
 						<li><a href="/faq"><%= t('.faq') %></a></li>

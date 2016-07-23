@@ -61,6 +61,8 @@ end
   # DELETE /sessions/1.json
   def destroy
   session[:user_id]=nil
+    
+    session[:cart_id] = nil
   redirect_to root_path,  alert: "successfully logout"
   end
 
