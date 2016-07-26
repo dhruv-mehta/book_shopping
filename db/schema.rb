@@ -67,27 +67,6 @@ ActiveRecord::Schema.define(version: 20160726085252) do
     t.string   "card_token"
   end
 
-  create_table "payment_notifications", force: :cascade do |t|
-    t.text     "params"
-    t.integer  "cart_id"
-    t.string   "status"
-    t.string   "transaction_id"
-    t.string   "create"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
-  end
-
-  create_table "payments", force: :cascade do |t|
-    t.string   "first_name"
-    t.string   "last_name"
-    t.string   "last4"
-    t.decimal  "amount"
-    t.boolean  "success"
-    t.string   "authorization_code"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
-  end
-
   create_table "products", force: :cascade do |t|
     t.string   "title",                               null: false
     t.text     "description",                         null: false
