@@ -1,0 +1,12 @@
+- unless @cart.line_items.empty?
+  %h2.cart_title
+    Your Pragmatic Cart
+  %table.table
+    = render (@cart.line_items)
+    %tr.total_line
+      %td
+        Total
+      %td.total_cell
+        = number_to_currency(@cart.total_price, :unit => "$" )
+  = button_to 'Empty Cart', @cart, method: :delete, data: { confirm: 'Are you sure?'} ,:remote =>true  ,  :id => "button"
+  = button_to 'checkout', {controller: "orders",action: "new"} ,method: :get

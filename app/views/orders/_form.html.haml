@@ -1,0 +1,26 @@
+= form_for(@order) do |f|
+  = hidden_field_tag :cart_id , {} ,:value => params[:cart_id]
+  - if @order.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@order.errors.count, "error")
+        prohibited this order from being saved:
+      %ul
+        - @order.errors.full_messages.each do |message|
+          %li= message
+  .field
+    = f.label :name
+    %br/
+    = f.text_field :name  , size: 30
+  .field
+    = f.label :address
+    %br/
+    = f.text_area :address  , cols: 40, rows: 3
+    %br/
+    = f.label :pay_type
+    %br/
+    = f.select(:pay_type, options_for_select(Order::PAYMENT), { prompt: 'Select Payment Type '})
+  .actions
+  %script.stripe-button{ src: "https://checkout.stripe.com/checkout.js",
+  data: {amount: (@cart.total_price * 100), description:"Demo stripe", key: Rails.application.secrets.stripe_publishable_key}}
+

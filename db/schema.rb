@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160721094219) do
+ActiveRecord::Schema.define(version: 20160726085252) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -64,6 +64,28 @@ ActiveRecord::Schema.define(version: 20160721094219) do
     t.string   "pay_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "card_token"
+  end
+
+  create_table "payment_notifications", force: :cascade do |t|
+    t.text     "params"
+    t.integer  "cart_id"
+    t.string   "status"
+    t.string   "transaction_id"
+    t.string   "create"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  create_table "payments", force: :cascade do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "last4"
+    t.decimal  "amount"
+    t.boolean  "success"
+    t.string   "authorization_code"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
   end
 
   create_table "products", force: :cascade do |t|

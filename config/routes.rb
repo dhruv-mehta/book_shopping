@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
  
 
+  get 'registrations/index'
+
+  get 'registrations/new'
+
+  get 'registrations/create'
+
   ActiveAdmin.routes(self)
   get 'welcome/index'
 

@@ -38,6 +38,11 @@ gem 'autoprefixer-rails'
 gem 'bcrypt', '~> 3.1.7'
 
 gem 'activeadmin', github: 'activeadmin'
+
+gem 'stripe'
+
+
+gem 'figaro'
 # Use Unicorn as the app server
 # gem 'unicorn'
 

@@ -47,15 +47,16 @@ class OrdersController < BaseController
   # POST /orders
   # POST /orders.json
   def create
-    @order = Order.new(order_params)
-
-
+    @order = Order.new order_params.merge(email: stripe_params["stripeEmail"],
+                                                               card_token: stripe_params["stripeToken"])
+    
     respond_to do |format|
       if @order.save
-
-      @line_item1 = @cart.line_items.where(:cart_id => session[:cart_id])
-       @line_item1.update_all(order_id:  @order.id)
-       session['cart_id']=nil
+        @line_item1 = @cart.line_items.where(:cart_id => session[:cart_id])
+        @line_item1.update_all(order_id:  @order.id)
+        session['cart_id']=nil
+        @order.process_payment(@cart.total_cart_price,"hi test")
+        puts "-------#{@order.inspect}" 
        OrderNotify.received(@order).deliver
         format.html { redirect_to root_url, notice: 'order saved...ThAnK YoU FoR ThE PuRcHaSe........' }
         format.json { render :show, status: :created, location: @order }
@@ -92,6 +93,11 @@ class OrdersController < BaseController
 
   private
     # Use callbacks to share common setup or constraints between actions.
+
+   def stripe_params
+      params.permit :stripeEmail, :stripeToken
+    end
+
     def set_order
       @order = Order.find(params[:id])
     end
